@@ -1,20 +1,21 @@
 package array_and_hashing.valid_anagram;
 
-
-
-public class Solution {
+class Solution {
     public boolean isAnagram(String s, String t) {
         if (s.length() != t.length()) return false;
 
-        int[] count = new int[26];
+        int[] letters = new int[26];
 
-        for(int i = 0; i < s.length(); i++){
-            count[s.charAt(i) - 'a']++;
-            count[t.charAt(i) - 'a']--;
+        for(char c : s.toCharArray()){
+            letters[c - 'a']++;
         }
 
-        for(int val : count){
-            if(val != 0) return false;
+        for(char c : t.toCharArray()){
+            letters[c - 'a']--;
+        }
+
+        for(int i = 0; i < 26; i++){
+            if(letters[i] != 0) return false;
         }
         return true;
     }
