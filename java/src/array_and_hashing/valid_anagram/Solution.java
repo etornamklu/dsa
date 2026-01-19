@@ -14,8 +14,8 @@ class Solution {
             letters[c - 'a']--;
         }
 
-        for(int i = 0; i < 26; i++){
-            if(letters[i] != 0) return false;
+        for(int letter : letters){
+            if(letter != 0) return false;
         }
         return true;
     }
