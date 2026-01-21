@@ -16,7 +16,9 @@ func GroupAnagrams(strs []string) [][]string {
 		track[key] = append(track[key], str)
 	}
 
-	results := [][]string{}
+	//return maps.Values(track)
+
+	var results [][]string
 
 	for _, v := range track {
 		results = append(results, v)
