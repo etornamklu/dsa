@@ -1,0 +1,24 @@
+package stack.evaluate_reverse_polish_notion;
+
+import java.util.Stack;
+
+class Solution {
+    public int evalRPN(String[] tokens) {
+        Stack<Integer> stack = new Stack<>();
+
+        for(String token: tokens){
+            switch(token){
+                case "+" -> stack.push(stack.pop() + stack.pop());
+                case "-" -> stack.push(stack.pop() - stack.pop());
+                case "*" -> stack.push(stack.pop() * stack.pop());
+                case "/" -> {
+                    int b = stack.pop();
+                    int a = stack.pop();
+                    stack.push(a / b);
+                }
+                default -> stack.push(Integer.parseInt(token));
+            }
+        }
+        return stack.pop();
+    }
+}
