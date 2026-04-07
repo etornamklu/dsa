@@ -9,7 +9,7 @@ func minEatingSpeed(piles []int, h int) int {
 		}
 	}
 
-	for r > l {
+	for l <= r {
 		m := l + (r-l)/2
 		totalHours := 0
 
@@ -20,7 +20,7 @@ func minEatingSpeed(piles []int, h int) int {
 		if totalHours > h {
 			l = m + 1 // Need to eat faster
 		} else {
-			r = m // Can try slower speeds
+			r = m - 1 // Can try slower speeds
 		}
 	}
 	return l // The minimum speed that allows Koko to eat all bananas in h hours
