@@ -12,6 +12,10 @@ class Solution {
         int l = 0;
         int r = nums.length - 1;
 
+        // find the pivot ( the smallest element in the array)
+        // if the middle element is less than the rightmost element, //
+        // then the minimum is in the left half else it is in the right half
+
         while (l < r) {
             int m = l + (r - l) / 2;
             if (nums[m] < nums[r]) {
